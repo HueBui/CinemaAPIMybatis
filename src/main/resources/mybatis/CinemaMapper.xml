@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.dts.CinemaAPI.domain.repositories.CinemaCustomRepo">
+
+    <resultMap id="listAllCinema" type="com.dts.CinemaAPI.domain.mapper.CinemaMapper">
+        <id column="idcinema" property="idcinema" jdbcType="VARCHAR"/>
+        <result column="namecinema" property="nameCinema" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="listAllCinema" resultMap="listAllCinema" statementType="CALLABLE">
+        {call listAllCinema()}
+    </select>
+
+</mapper>

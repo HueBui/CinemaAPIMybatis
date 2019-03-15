@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.dts.CinemaAPI.domain.repositories.MovieCustomRepo">
+
+    <resultMap id="listAllInfoMovie" type="com.dts.CinemaAPI.domain.mapper.MovieActorDirectoryCategoryInfoMapper">
+        <id column="idmovie" property="idMove" jdbcType="VARCHAR"/>
+        <result column="moviename" property="nameMovie" jdbcType="VARCHAR"/>
+        <result column="discription" property="discription" jdbcType="VARCHAR"/>
+        <result column="duration" property="duration" jdbcType="VARCHAR"/>
+        <result column="image" property="image" jdbcType="VARCHAR"/>
+        <result column="language" property="language" jdbcType="VARCHAR"/>
+        <result column="rated" property="rated" jdbcType="VARCHAR"/>
+        <result column="start" property="start" jdbcType="VARCHAR"/>
+        <result column="trailler" property="trailer" jdbcType="VARCHAR"/>
+        <result column="nameactor" property="nameActor" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="namedirector" property="nameDirectory" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="listAllInfoMovie" resultMap="listAllInfoMovie" statementType="CALLABLE">
+        {call listAllInforMovie(#{id, jdbcType = VARCHAR, mode = IN})}
+    </select>
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.dts.CinemaAPI.domain.repositories.ActorRepo">
+
+    <resultMap id="pageActor" type="com.dts.CinemaAPI.domain.entities.Actor">
+        <id column="idactor" property="idactor" jdbcType="VARCHAR"/>
+        <result column="nameactor" property="nameactor" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <select id="findByRows" resultMap="pageActor">
+        {call paginationActor(#{arg0,jdbcType = INTEGER, mode = IN}, #{arg1,jdbcType = INTEGER, mode = IN})}
+    </select>
+
+</mapper>

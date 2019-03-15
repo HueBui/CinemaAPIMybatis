@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.dts.CinemaAPI.domain.repositories.CinemaCustomRepo">
+
+    <resultMap id="listAllShowtimeCinema" type="com.dts.CinemaAPI.domain.mapper.CinemaShowtimeMapper">
+        <id column="idshowtime" property="idShowtime" jdbcType="VARCHAR"/>
+        <result column="dateshow" property="dateShow" jdbcType="VARCHAR"/>
+        <result column="frametime" property="frameTime" jdbcType="VARCHAR"/>
+        <result column="moviename" property="nameMovie" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <select id="listAllShowtimeCinemas" resultMap="listAllShowtimeCinema" statementType="CALLABLE">
+        {call listAllShowtimeCinema(#{arg0, jdbcType = VARCHAR, mode = IN})}
+    </select>
+
+</mapper>

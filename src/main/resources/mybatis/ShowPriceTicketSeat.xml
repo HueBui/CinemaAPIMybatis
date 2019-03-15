@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.dts.CinemaAPI.domain.repositories.TicketRepo">
+
+    <resultMap id="showPriceTicketSeat" type="com.dts.CinemaAPI.domain.mapper.TicketMapper">
+        <id column="idticket" property="idTicket" jdbcType="VARCHAR"/>
+        <result column="price" property="price" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="showPriceTicketSeat" resultMap="showPriceTicketSeat">
+        {call showPriceTicketSeat(#{arg0, jdbcType = VARCHAR, mode = IN},#{arg1, jdbcType = VARCHAR, mode = IN})}
+    </select>
+
+</mapper>
